@@ -35,7 +35,7 @@ for (const field of refs.fields) {
 
 for (const value of refs.values) {
   value.style.marginRight = '4px';
-}
+};
 
 let intervalId = null;
 let selectedDate = '';
@@ -52,7 +52,9 @@ const options = {
     selectedDate = selectedDates[0].getTime();
 
     if ((selectedDate - options.defaultDate) < 0) {
-      Notify.failure('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future', {
+        timeout:1500,
+      });
       refs.startBtn.disabled = true;
       return;
     };
